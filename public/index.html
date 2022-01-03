@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+    <title>Demo App</title>
+  </head>
+    
+
+<body>
+    <div id="app">
+        <div class="nes-container with-title is-centered">
+            <p class="title">Contact Form</p>
+            <form @submit.prevent="submit">
+                 <div class="nes-field">
+                    <label for="name_field">Your Name</label>
+                    <input placeholder="Enter Your Name" type="text" 
+                         name="name" 
+                         id="name_field" class="nes-input" />
+                </div>
+                <div class="nes-field job">
+                    <label for="email_field">Your Email</label>
+                    <input placeholder="Enter Your Email" type="email" 
+                         name="email" 
+                         id="email_field" class="nes-input" />
+                </div>
+
+                <div class="nes-field job">
+                    <label for="name_field">Message</label>
+                    <textarea placeholder="Enter message here" type="text" 
+                         name="message" 
+                         rows="4"
+                         id="message_field" class="nes-input" ></textarea>
+                </div>
+
+                <button
+                 type="submit" id="button" class=" job nes-btn is-primary">
+                 Send
+                </button>
+        </div>
+
+        </form>
+        <dialog class="nes-dialog" id="dialog-default" ref="dialog">
+            <form method="dialog">
+                <section class="character c1">
+                    <i class="nes-bcrikko nes-c"></i>
+                    <div class="nes-balloon from-left">
+                        <p>Message Sent! Thanks!</p>
+                    </div>
+
+                </section>
+                <section class="character info">
+                    <h4 class="topic">Name: {{name}}<span id="name"></span></h4>
+                    <h5>Email: {{email}}<span id="gender"></span></h5>
+                    <h5>Message: {{message}}<span id="job"></span></h5>
+
+
+                </section>
+                <menu class="dialog-menu">
+                    <button class="nes-btn is-primary">Confirm</button>
+                </menu>
+
+            </form>
+        </dialog>
+    </div>
+    <script>
+
+        const App = {
+            data() {
+                return {
+                    email:'',
+                    name: '',
+                    message: ''
+
+
+                  };
+            },
+            methods: {
+                submit(event){
+                    const { email, name, message } = Object.fromEntries(new FormData(event.target));
+                    this.name = name;
+                    this.email = email;
+                    this.message = message;
+
+                    this.$refs.dialog.showModal();
+                    console.log(this.$refs.dialog)
+
+                    
+
+                }
+            }
+        };
+
+        const app = Vue.createApp(App);
+        app.mount("#app");
+
+      
+    </script>
+
+<style>
+    body {
+        max-width: 768px;
+    margin: auto;
+    margin-top: 50px;
+    }
+
+    .job {
+        margin-top:40px;
+    }
+
+    .c1 {
+        display:flex;
+        margin-bottom:20px;
+    }
+
+    .nes-balloon {
+        margin-left:22px;
+    }
+</style>

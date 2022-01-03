@@ -1,0 +1,31 @@
+{
+  "name": "ses-email-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon --watch app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luke-h1/ses-email-test.git"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luke-h1/ses-email-test/issues"
+  },
+  "homepage": "https://github.com/luke-h1/ses-email-test#readme",
+  "dependencies": {
+    "aws-sdk": "^2.1048.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
