@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/luke-h1/ses-email-test#readme",
   "dependencies": {
-    "aws-sdk": "^2.1048.0",
+    "aws-sdk": "^2.1319.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2"
